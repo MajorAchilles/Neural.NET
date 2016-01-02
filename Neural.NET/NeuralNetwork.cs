@@ -192,5 +192,15 @@ namespace Neural.NET
                 }
             }
         }
+
+        /// <summary>
+        /// Gets the cost of the neural network
+        /// </summary>
+        /// <param name="costFunction">The cost function to be used to calculate the cost.</param>
+        /// <returns>Cost of the neural network.</returns>
+        public double GetCost(CostFunction costFunction)
+        {
+            return 0D;
+        }
     }
 }

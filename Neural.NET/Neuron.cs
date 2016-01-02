@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Neural.NET
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public abstract class Neuron
     {
@@ -26,7 +26,7 @@ namespace Neural.NET
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <seealso cref="Neural.NET.Neuron" />
     public class InputNeuron : Neuron
@@ -69,7 +69,7 @@ namespace Neural.NET
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <seealso cref="Neural.NET.Neuron" />
     public class OutputNeuron : Neuron
@@ -77,7 +77,7 @@ namespace Neural.NET
         /// <summary>
         /// The in synapses
         /// </summary>
-        List<Synapse> inSynapses = new List<Synapse>();
+        private List<Synapse> inSynapses = new List<Synapse>();
 
         /// <summary>
         /// Gets or sets the in synapses.
@@ -119,16 +119,20 @@ namespace Neural.NET
         /// <returns></returns>
         public double Activate(ActivationFunction activationFunction)
         {
-            switch(activationFunction)
+            switch (activationFunction)
             {
                 case ActivationFunction.HeavisideStep:
                     return HeavisideStep(Value);
+
                 case ActivationFunction.HyperbolicTangent:
                     return HyperbolicTangent(Value);
+
                 case ActivationFunction.Identity:
                     return Identity(Value);
+
                 case ActivationFunction.LogisticSigmoid:
                     return LogisticSigmoid(Value);
+
                 case ActivationFunction.Softmax:
                     return LogisticSigmoid(Value);
             }
@@ -187,7 +191,7 @@ namespace Neural.NET
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <seealso cref="Neural.NET.OutputNeuron" />
     public class HiddenNeuron : OutputNeuron
